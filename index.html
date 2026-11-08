@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cynthia Fuentes García · Ingeniera Informática</title>
+<meta name="description" content="Ingeniera Informática especializada en IA, automatización y desarrollo de software. Salamanca, España.">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0B0C0E; --bg-2:#121417; --text:#ECEDEE; --muted:#9BA1A6; --line:#24272B;
+  --accent:#8CC5BC; --accent-ink:#0B0C0E; --chip:#171A1D;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif;
+  --max:1120px; --ease:cubic-bezier(.2,.7,.2,1);
+}
+[data-theme="light"]{
+  --bg:#F5F6F4; --bg-2:#ECEEEA; --text:#16191C; --muted:#565C63; --line:#D6DAD4;
+  --accent:#0F5E63; --accent-ink:#FFFFFF; --chip:#E6E9E4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color .35s var(--ease),color .35s var(--ease)}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Barra superior */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.mark{font-family:var(--serif);font-size:26px;text-decoration:none;letter-spacing:.01em}
+.nav{display:flex;gap:26px;font-size:15px}
+.nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a:hover,.nav a.on{color:var(--text)}
+.ctrl{display:flex;gap:8px;align-items:center}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{all:unset;cursor:pointer;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;color:var(--muted);min-width:22px;text-align:center}
+.seg button[aria-pressed="true"]{background:var(--text);color:var(--bg)}
+.icon-btn{all:unset;cursor:pointer;display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:999px;color:var(--text)}
+.icon-btn:hover{border-color:var(--muted)}
+.icon-btn svg{width:18px;height:18px}
+[data-theme="dark"] .sun,[data-theme="light"] .moon{display:none}
+
+/* Portada */
+.hero{padding:110px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px;align-items:start;margin-top:8px}
+.kicker{margin:0 0 28px;color:var(--muted);font-size:16px;display:flex;align-items:center;gap:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,10.5vw,148px);line-height:.9;letter-spacing:-.02em;margin:0}
+h1 span{display:block}
+h1 .last{color:var(--muted)}
+.role{font-size:clamp(19px,2.1vw,23px);margin:34px 0 0;max-width:30ch;line-height:1.4}
+.intro{color:var(--muted);max-width:58ch;margin:22px 0 0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);cursor:pointer;background:transparent;color:var(--text);font-family:inherit;transition:border-color .2s,background-color .2s,color .2s}
+.btn:hover{border-color:var(--text)}
+.btn.solid{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn svg{width:17px;height:17px}
+
+/* Flujo de automatización (portada) */
+.flow{border:1px solid var(--line);border-radius:22px;padding:26px 24px 22px;background:var(--bg-2);margin:38px 0 0}
+.flow p{margin:0 0 14px;font-size:13px;color:var(--muted)}
+.flow svg{width:100%;height:auto;display:block;overflow:visible}
+.flow .edge{fill:none;stroke:var(--line);stroke-width:1.5}
+.flow .pulse{fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:18 400;stroke-dashoffset:418;animation:run 3.2s var(--ease) infinite}
+@keyframes run{to{stroke-dashoffset:0}}
+.flow .node rect{fill:var(--bg);stroke:var(--line);stroke-width:1.2;transition:stroke .3s}
+.flow .node text{fill:var(--text);font-family:var(--sans);font-size:13px;font-weight:500}
+.flow .node.hl rect{stroke:var(--accent)}
+.flow-caption{min-height:3.2em;margin-top:14px;font-size:14px;color:var(--muted)}
+.flow-steps{display:flex;gap:6px;margin-top:6px}
+.flow-steps button{all:unset;cursor:pointer;width:26px;height:4px;border-radius:4px;background:var(--line)}
+.flow-steps button[aria-pressed="true"]{background:var(--accent)}
+.flow-steps button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* Secciones */
+section{border-top:1px solid var(--line)}
+.sec{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:48px;padding:96px 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.4vw,54px);line-height:1;margin:0;letter-spacing:-.01em}
+.sec-note{color:var(--muted);font-size:15px;margin:14px 0 0;max-width:24ch}
+h3{font-size:22px;font-weight:600;margin:0;line-height:1.3}
+
+/* Experiencia */
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;align-items:baseline}
+.when{color:var(--muted);font-size:15px;font-variant-numeric:tabular-nums}
+.org{color:var(--accent);font-weight:500;margin:6px 0 0}
+.highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:30px 0 26px}
+.highlights div{background:var(--bg);padding:20px 22px}
+.highlights strong{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+.highlights span{display:block;color:var(--muted);font-size:14px;margin-top:8px;line-height:1.45}
+.highlights strong span{display:inline;color:inherit;font-size:inherit;margin:0;line-height:inherit;font-variant-numeric:tabular-nums}
+.duties{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.duties li{padding:15px 0 15px 30px;border-top:1px solid var(--line);position:relative}
+.duties li::before{content:"";position:absolute;left:4px;top:26px;width:12px;height:1px;background:var(--accent)}
+.duties li[hidden]{display:none}
+.more{margin-top:18px}
+
+/* Proyecto */
+.proj-title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,60px);line-height:1;margin:0}
+.proj-sub{color:var(--muted);margin:12px 0 0}
+.proj-desc{margin:24px 0 0;max-width:62ch}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 0;border-bottom:1px solid var(--line)}
+.tabs button{all:unset;cursor:pointer;padding:12px 4px;margin-right:18px;font-size:15px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{padding:26px 0 0;max-width:64ch}
+.panel[hidden]{display:none}
+.panel p{margin:0}
+.panel .tags{margin-top:18px}
+
+/* Formación */
+.edu{list-style:none;margin:0;padding:0}
+.edu li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:22px 0;border-top:1px solid var(--line)}
+.edu li:first-child{border-top:0;padding-top:0}
+.edu .what{font-size:19px;font-weight:600}
+.edu .where{color:var(--muted);font-size:15px;grid-column:1}
+.edu .yr{color:var(--muted);font-size:15px;grid-row:1;grid-column:2;font-variant-numeric:tabular-nums}
+.edu .now{color:var(--accent);font-weight:600}
+
+/* Habilidades */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filters button{all:unset;cursor:pointer;font-size:14px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.filters button[aria-pressed="true"]{border-color:var(--text);color:var(--text)}
+.filters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:15px;padding:8px 15px;border-radius:999px;background:var(--chip);transition:opacity .25s,background-color .25s}
+.tag.dim{opacity:.22}
+.langs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:44px}
+.lang{border-top:1px solid var(--line);padding-top:16px}
+.lang strong{display:block;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1}
+.lang span{color:var(--muted);font-size:15px}
+
+/* Contacto */
+.contact{padding:120px 0 60px}
+.contact h2{font-size:clamp(52px,8.5vw,116px);line-height:.95}
+.contact p{color:var(--muted);max-width:52ch;margin:26px 0 0}
+.mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:38px}
+.mail{font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px;transition:border-color .2s}
+.mail:hover{border-color:var(--accent)}
+.toast{font-size:14px;color:var(--accent);min-height:1.4em}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* Entrada única al cargar */
+.reveal{opacity:0;transform:translateY(14px);animation:in .9s var(--ease) forwards}
+.reveal.d1{animation-delay:.08s}.reveal.d2{animation-delay:.2s}.reveal.d3{animation-delay:.32s}.reveal.d4{animation-delay:.44s}
+@keyframes in{to{opacity:1;transform:none}}
+
+/* ---------- Fluidez ---------- */
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto}
+.lenis.lenis-stopped{overflow:hidden}
+.top{transition:transform .5s var(--ease),background-color .35s var(--ease)}
+.top.hide{transform:translateY(-100%)}
+.progress{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+
+/* Nombre: líneas que suben desde una máscara */
+h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+h1 .ln > span{display:block;transform:translateY(105%);animation:lineUp 1.15s var(--ease) forwards}
+h1 .ln:nth-child(2) > span{animation-delay:.12s}
+@keyframes lineUp{to{transform:none}}
+.hero-inner{will-change:transform,opacity}
+
+/* Texto que se ilumina palabra a palabra */
+.about{padding:150px 0 160px}
+.statement{font-size:clamp(30px,4.4vw,58px);line-height:1.18;letter-spacing:-.015em;font-weight:500;margin:0;max-width:24ch}
+.statement .w{color:color-mix(in srgb,var(--text) 18%,transparent);transition:color .25s linear}
+.statement .w.on{color:var(--text)}
+.about-meta{color:var(--muted);margin:0 0 30px;font-size:16px}
+
+/* Aparición al entrar en pantalla */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+.tags.stag .tag{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .6s var(--ease),background-color .25s}
+.tags.stag.in .tag{opacity:1;transform:none}
+.tags.stag.in .tag.dim{opacity:.22}
+
+/* Menú móvil */
+.burger{display:none}
+.sheet{position:fixed;inset:0;z-index:30;background:var(--bg);display:flex;flex-direction:column;padding:96px 28px 40px;gap:6px;opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+.sheet.open{opacity:1;pointer-events:auto}
+.sheet a{font-family:var(--serif);font-size:44px;line-height:1.15;text-decoration:none;transform:translateY(18px);opacity:0;transition:transform .6s var(--ease),opacity .6s var(--ease)}
+.sheet.open a{transform:none;opacity:1}
+.sheet.open a:nth-child(2){transition-delay:.05s}.sheet.open a:nth-child(3){transition-delay:.1s}.sheet.open a:nth-child(4){transition-delay:.15s}.sheet.open a:nth-child(5){transition-delay:.2s}.sheet.open a:nth-child(6){transition-delay:.25s}
+.sheet-close{position:absolute;top:14px;right:20px}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .burger{display:grid}
+  .about{padding:96px 0 110px}
+  .hero{padding:72px 0 64px}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .sec{grid-template-columns:1fr;gap:28px;padding:72px 0}
+  .highlights{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .wrap{padding:0 20px}
+  .langs{grid-template-columns:1fr}
+  .edu li{grid-template-columns:1fr}
+  .edu .yr{grid-row:auto;grid-column:1}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.rv,.tags.stag .tag,.sheet a{opacity:1;transform:none}
+  h1 .ln > span{transform:none}
+  .statement .w{color:var(--text)}
+  html{scroll-behavior:auto}
+}
+@media print{
+  .top,.flow,.actions,.filters,.tabs,.more,.mail-row button{display:none!important}
+  .panel[hidden],.duties li[hidden]{display:block!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#inicio" aria-label="Inicio">C. Fuentes</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+      <a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+      <a href="#proyecto" data-i18n="nav.proj">Proyecto</a>
+      <a href="#formacion" data-i18n="nav.edu">Formación</a>
+      <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="ctrl">
+      <div class="seg" role="group" aria-label="Idioma / Language" style="margin-right:2px">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme" aria-label="Cambiar a modo claro">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button type="button" class="icon-btn burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="sheet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 9h14M5 15h14"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<div class="sheet" id="sheet" aria-label="Menú">
+  <button type="button" class="icon-btn sheet-close" id="sheet-close" aria-label="Cerrar menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+  <a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+  <a href="#proyecto" data-i18n="nav.proj">Proyecto</a>
+  <a href="#formacion" data-i18n="nav.edu">Formación</a>
+  <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+  <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+</div>
+
+<main id="inicio">
+  <div class="wrap hero"><div class="hero-inner" id="hero-inner">
+    <p class="kicker reveal"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.status">Salamanca, España. Abierta a nuevas oportunidades</span></p>
+    <h1><span class="ln"><span>Cynthia</span></span><span class="ln last"><span>Fuentes García</span></span></h1>
+    <div class="hero-grid">
+      <div>
+        <p class="role reveal d2" data-i18n="hero.role">Ingeniera Informática especializada en inteligencia artificial, automatización y desarrollo de software.</p>
+        <p class="intro reveal d3" data-i18n="hero.intro">Graduada por la Universidad de Salamanca, con experiencia en el departamento de IA &amp; Automation de Viewnext. Diseño automatizaciones, agentes de IA y aplicaciones web completas, desde la idea hasta producción. Actualmente curso el Máster en Inteligencia Artificial y Ciencia de Datos.</p>
+        <div class="actions reveal d4">
+          <a class="btn solid" href="#contacto" data-i18n="hero.cta">Contactar</a>
+          <a class="btn" href="cv.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>
+            <span data-i18n="hero.cv">Descargar CV</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/cintia-fuentes-garc%C3%ADa-055a24359" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <figure class="flow reveal d3" aria-labelledby="flow-title">
+        <p id="flow-title" data-i18n="flow.title">Cómo trabajo: de un proceso manual a uno automático</p>
+        <svg viewBox="0 0 320 176" role="img" aria-label="Diagrama: proceso, agente de IA, RPA y resultado">
+          <path class="edge" d="M120 38 H240 V138 H120"/>
+          <path class="pulse" d="M120 38 H240 V138 H120"/>
+          <g class="node" data-step="0"><rect x="10" y="20" width="110" height="36" rx="18"/><text x="65" y="43" text-anchor="middle" data-i18n="flow.n0">Proceso</text></g>
+          <g class="node" data-step="1"><rect x="180" y="20" width="130" height="36" rx="18"/><text x="245" y="43" text-anchor="middle" data-i18n="flow.n1">Agente IA</text></g>
+          <g class="node" data-step="2"><rect x="180" y="120" width="130" height="36" rx="18"/><text x="245" y="143" text-anchor="middle" data-i18n="flow.n2">RPA y workflows</text></g>
+          <g class="node" data-step="3"><rect x="10" y="120" width="110" height="36" rx="18"/><text x="65" y="143" text-anchor="middle" data-i18n="flow.n3">Resultado</text></g>
+        </svg>
+        <p class="flow-caption" id="flow-caption" aria-live="polite"></p>
+        <div class="flow-steps" role="group" aria-label="Pasos">
+          <button type="button" aria-pressed="true" data-go="0"><span class="sr">1</span></button>
+          <button type="button" aria-pressed="false" data-go="1"><span class="sr">2</span></button>
+          <button type="button" aria-pressed="false" data-go="2"><span class="sr">3</span></button>
+          <button type="button" aria-pressed="false" data-go="3"><span class="sr">4</span></button>
+        </div>
+      </figure>
+    </div>
+  </div></div>
+
+  <section id="sobre-mi">
+    <div class="wrap about">
+      <p class="about-meta rv" data-i18n="about.h">Sobre mí</p>
+      <p class="statement" id="statement" data-i18n="about.p">Me gusta convertir procesos lentos y repetitivos en sistemas que funcionan solos. Combino automatización, agentes de IA y desarrollo full stack para crear soluciones que llegan a producción y ahorran tiempo de verdad.</p>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap sec">
+      <div><h2 data-i18n="exp.h">Experiencia</h2></div>
+      <div>
+        <div class="job-head">
+          <h3 data-i18n="exp.role">Prácticas en IA &amp; Automation</h3>
+          <span class="when" data-i18n="exp.when">feb. 2026 – may. 2026</span>
+        </div>
+        <p class="org">Viewnext, S.A.</p>
+        <div class="highlights">
+          <div><strong><span data-count="300">300</span> h</strong><span data-i18n="exp.k1">en un equipo profesional de IA y automatización</span></div>
+          <div><strong><span data-count="10">10</span>/10</strong><span data-i18n="exp.k2">en todas las competencias del informe final de la tutora</span></div>
+          <div><strong data-i18n="exp.k3h">Producción</strong><span data-i18n="exp.k3">robots RPA desplegados y funcionando en cliente</span></div>
+        </div>
+        <ul class="duties" id="duties">
+          <li data-i18n="exp.d1">Desarrollé y optimicé flujos de automatización RPA con UiPath y Blue Prism.</li>
+          <li data-i18n="exp.d2">Diseñé y configuré agentes de inteligencia artificial, incluida la redacción de system prompts complejos.</li>
+          <li data-i18n="exp.d3">Implementé estructuras Memory Bank en Cline para mejorar el contexto y la persistencia de los modelos de IA.</li>
+          <li data-i18n="exp.d4" hidden>Diseñé y configuré workflows automatizados con n8n como herramienta de orquestación.</li>
+          <li data-i18n="exp.d5" hidden>Investigué y probé Playwright para agilizar los ciclos de desarrollo internos.</li>
+          <li data-i18n="exp.d6" hidden>Resolví con autonomía bugs y conflictos de API o de entorno ante requisitos cambiantes, proponiendo una hoja de ruta.</li>
+          <li data-i18n="exp.d7" hidden>Colaboré con el equipo en proyectos de innovación, automatización e inteligencia artificial.</li>
+        </ul>
+        <button type="button" class="btn more" id="more" aria-expanded="false" aria-controls="duties" data-i18n="exp.more">Ver todas las tareas</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyecto">
+    <div class="wrap sec">
+      <div>
+        <h2 data-i18n="proj.h">Proyecto destacado</h2>
+        <p class="sec-note" data-i18n="proj.note">Trabajo Fin de Grado, desarrollado de principio a fin de forma individual.</p>
+      </div>
+      <div>
+        <p class="proj-title">ASIA Salud</p>
+        <p class="proj-sub" data-i18n="proj.sub">Sistema de gestión hospitalaria con asistente de voz basado en IA</p>
+        <p class="proj-desc" data-i18n="proj.desc">Plataforma web con tres perfiles (paciente, médico y administrador): citas, agenda médica, guardias, historial clínico y panel de administración. Está desplegada y en uso en producción.</p>
+        <div class="actions" style="margin-top:26px">
+          <a class="btn" href="https://asiasalud.es" target="_blank" rel="noopener" data-i18n="proj.visit">Visitar asiasalud.es</a>
+        </div>
+        <div class="tabs" role="tablist" aria-label="ASIA Salud">
+          <button type="button" role="tab" id="t0" aria-controls="p0" aria-selected="true" data-i18n="proj.t0">Asistente de voz</button>
+          <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1" data-i18n="proj.t1">Arquitectura</button>
+          <button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" data-i18n="proj.t2">Seguridad</button>
+          <button type="button" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1" data-i18n="proj.t3">Despliegue</button>
+        </div>
+        <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
+          <p data-i18n="proj.p0">Triaje preliminar por voz: reconocimiento y síntesis con Web Speech API y un servicio de IA consumido desde el backend, con validación de respuestas y mecanismo de respaldo. Devuelve nivel de urgencia, especialidad recomendada y un informe en PDF.</p>
+          <div class="tags"><span class="tag">Web Speech API</span><span class="tag">IA</span><span class="tag">jsPDF</span></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+          <p data-i18n="proj.p1">Arquitectura cliente-servidor: React y Vite en el frontend; Node.js y Express con una API REST organizada en rutas, controladores, servicios y middlewares sobre MySQL, documentada y probada con Swagger/OpenAPI.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">Swagger</span></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+          <p data-i18n="proj.p2">Autenticación con JWT, control de acceso por roles (RBAC), protección de rutas privadas, contraseñas cifradas con bcrypt y tráfico por HTTPS.</p>
+          <div class="tags"><span class="tag">JWT</span><span class="tag">RBAC</span><span class="tag">bcrypt</span><span class="tag">HTTPS</span></div>
+        </div>
+        <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+          <p data-i18n="proj.p3">Despliegue en un VPS con Docker, Docker Compose, Nginx como proxy inverso y certificados Let’s Encrypt. Gestión con Scrum en 9 sprints, Product Backlog, Story Points, Trello y Git/GitLab.</p>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">Nginx</span><span class="tag">Let’s Encrypt</span><span class="tag">Scrum</span><span class="tag">GitLab</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="wrap sec">
+      <div><h2 data-i18n="edu.h">Formación</h2></div>
+      <ul class="edu">
+        <li><span class="what" data-i18n="edu.m">Máster en Inteligencia Artificial y Ciencia de Datos</span><span class="where">Universidad de Salamanca</span><span class="yr now" data-i18n="edu.now">En curso</span></li>
+        <li><span class="what" data-i18n="edu.g">Grado en Ingeniería Informática</span><span class="where">Universidad de Salamanca</span><span class="yr">2026</span></li>
+        <li><span class="what" data-i18n="edu.c">Certificado en IA Generativa para la Creación de Aplicaciones</span><span class="where">Universidad de Salamanca</span><span class="yr">2024</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap sec">
+      <div>
+        <h2 data-i18n="sk.h">Habilidades</h2>
+        <p class="sec-note" data-i18n="sk.note">Elige un área para destacar sus herramientas.</p>
+      </div>
+      <div>
+        <div class="filters" role="group" aria-label="Áreas">
+          <button type="button" data-f="all" aria-pressed="true" data-i18n="sk.all">Todas</button>
+          <button type="button" data-f="ia" aria-pressed="false" data-i18n="sk.ia">IA y automatización</button>
+          <button type="button" data-f="dev" aria-pressed="false" data-i18n="sk.dev">Desarrollo</button>
+          <button type="button" data-f="sec" aria-pressed="false" data-i18n="sk.sec">Seguridad</button>
+          <button type="button" data-f="ops" aria-pressed="false" data-i18n="sk.ops">DevOps y herramientas</button>
+        </div>
+        <div class="tags" id="skills">
+          <span class="tag" data-a="ia">UiPath</span><span class="tag" data-a="ia">Blue Prism</span><span class="tag" data-a="ia">n8n</span><span class="tag" data-a="ia" data-i18n="sk.agents">Agentes de IA</span><span class="tag" data-a="ia">Prompt Engineering</span><span class="tag" data-a="ia">Cline</span><span class="tag" data-a="ia">Memory Bank</span><span class="tag" data-a="ia">Python</span>
+          <span class="tag" data-a="dev">JavaScript</span><span class="tag" data-a="dev">React</span><span class="tag" data-a="dev">Vite</span><span class="tag" data-a="dev">Node.js</span><span class="tag" data-a="dev">Express</span><span class="tag" data-a="dev">API REST</span><span class="tag" data-a="dev">HTML</span><span class="tag" data-a="dev">CSS</span><span class="tag" data-a="dev">MySQL</span>
+          <span class="tag" data-a="sec">JWT</span><span class="tag" data-a="sec">RBAC</span><span class="tag" data-a="sec">bcrypt</span><span class="tag" data-a="sec">HTTPS</span>
+          <span class="tag" data-a="ops">Playwright</span><span class="tag" data-a="ops">Git</span><span class="tag" data-a="ops">GitHub</span><span class="tag" data-a="ops">GitLab</span><span class="tag" data-a="ops">Docker</span><span class="tag" data-a="ops">Docker Compose</span><span class="tag" data-a="ops">Nginx</span><span class="tag" data-a="ops">Swagger/OpenAPI</span><span class="tag" data-a="ops">Scrum</span><span class="tag" data-a="ops">Trello</span>
+        </div>
+        <div class="langs">
+          <div class="lang"><strong data-i18n="lang.en">Inglés</strong><span>B2</span></div>
+          <div class="lang"><strong data-i18n="lang.fr">Francés</strong><span data-i18n="lang.frl">4 años cursados</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap contact">
+      <h2 data-i18n="ct.h">Hablemos.</h2>
+      <p data-i18n="ct.p">Busco oportunidades en IA, automatización y desarrollo de software, en Salamanca o en remoto. Escríbeme y te respondo lo antes posible.</p>
+      <div class="mail-row">
+        <a class="mail" href="mailto:cynthiaaafg@gmail.com">cynthiaaafg@gmail.com</a>
+        <button type="button" class="btn" id="copy" data-i18n="ct.copy">Copiar email</button>
+        <span class="toast" id="toast" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Cynthia Fuentes García</span>
+    <span data-i18n="ft">Salamanca, España</span>
+  </div>
+</footer>
+
+<script>/*! Lenis 1.3.27 · MIT License · darkroom.engineering */
+(function(){var e=`1.3.27`;function t(e,t,n){return Math.max(e,Math.min(t,n))}function n(e,t,n){return(1-n)*e+n*t}function r(e,t,r,i){return n(e,t,1-Math.exp(-r*i))}function i(e,t){return(e%t+t)%t}var a=class{isRunning=!1;value=0;from=0;to=0;currentTime=0;lerp;duration;easing;onUpdate;advance(e){if(!this.isRunning)return;let n=!1;if(this.duration&&this.easing){this.currentTime+=e;let r=t(0,this.currentTime/this.duration,1);n=r>=1;let i=n?1:this.easing(r);this.value=this.from+(this.to-this.from)*i}else this.lerp?(this.value=r(this.value,this.to,this.lerp*60,e),Math.round(this.value)===Math.round(this.to)&&(this.value=this.to,n=!0)):(this.value=this.to,n=!0);n&&this.stop(),this.onUpdate?.(this.value,n)}stop(){this.isRunning=!1}fromTo(e,t,{lerp:n,duration:r,easing:i,onStart:a,onUpdate:o}){this.from=this.value=e,this.to=t,this.lerp=n,this.duration=r,this.easing=i,this.currentTime=0,this.isRunning=!0,a?.(),this.onUpdate=o}};function o(e,t){let n;return function(...r){clearTimeout(n),n=setTimeout(()=>{n=void 0,e.apply(this,r)},t)}}var s=class{width=0;height=0;scrollHeight=0;scrollWidth=0;debouncedResize;wrapperResizeObserver;contentResizeObserver;constructor(e,t,{autoResize:n=!0,debounce:r=250}={}){this.wrapper=e,this.content=t,n&&(this.debouncedResize=o(this.resize,r),this.wrapper instanceof Window?window.addEventListener(`resize`,this.debouncedResize):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener(`resize`,this.debouncedResize)}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}},c=class{events={};emit(e,...t){let n=this.events[e]||[];for(let e=0,r=n.length;e<r;e++)n[e]?.(...t)}on(e,t){return this.events[e]?this.events[e].push(t):this.events[e]=[t],()=>{this.events[e]=this.events[e]?.filter(e=>t!==e)}}off(e,t){this.events[e]=this.events[e]?.filter(e=>t!==e)}destroy(){this.events={}}};let l={passive:!1};function u(e,t){return e===1?16.666666666666668:e===2?t:1}var d=class{touchStart={x:0,y:0};lastDelta={x:0,y:0};window={width:0,height:0};emitter=new c;constructor(e,t={wheelMultiplier:1,touchMultiplier:1}){this.element=e,this.options=t,window.addEventListener(`resize`,this.onWindowResize),this.onWindowResize(),this.element.addEventListener(`wheel`,this.onWheel,l),this.element.addEventListener(`touchstart`,this.onTouchStart,l),this.element.addEventListener(`touchmove`,this.onTouchMove,l),this.element.addEventListener(`touchend`,this.onTouchEnd,l)}on(e,t){return this.emitter.on(e,t)}destroy(){this.emitter.destroy(),window.removeEventListener(`resize`,this.onWindowResize),this.element.removeEventListener(`wheel`,this.onWheel,l),this.element.removeEventListener(`touchstart`,this.onTouchStart,l),this.element.removeEventListener(`touchmove`,this.onTouchMove,l),this.element.removeEventListener(`touchend`,this.onTouchEnd,l)}onTouchStart=e=>{let{clientX:t,clientY:n}=e.targetTouches?e.targetTouches[0]:e;this.touchStart.x=t,this.touchStart.y=n,this.lastDelta={x:0,y:0},this.emitter.emit(`scroll`,{deltaX:0,deltaY:0,event:e})};onTouchMove=e=>{let{clientX:t,clientY:n}=e.targetTouches?e.targetTouches[0]:e,r=-(t-this.touchStart.x)*this.options.touchMultiplier,i=-(n-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=t,this.touchStart.y=n,this.lastDelta={x:r,y:i},this.emitter.emit(`scroll`,{deltaX:r,deltaY:i,event:e})};onTouchEnd=e=>{this.emitter.emit(`scroll`,{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:e})};onWheel=e=>{let{deltaX:t,deltaY:n,deltaMode:r}=e,i=u(r,this.window.width),a=u(r,this.window.height);t*=i,n*=a,t*=this.options.wheelMultiplier,n*=this.options.wheelMultiplier,this.emitter.emit(`scroll`,{deltaX:t,deltaY:n,event:e})};onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}}};let f=e=>Math.min(1,1.001-2**(-10*e));var p=class{_isScrolling=!1;_isStopped=!1;_isLocked=!1;_preventNextNativeScrollEvent=!1;_resetVelocityTimeout=null;_rafId=null;_isDraggingSelection=!1;reducedMotionMediaQuery=window.matchMedia(`(prefers-reduced-motion: reduce)`);isTouching;isIos;time=0;userData={};lastVelocity=0;velocity=0;direction=0;options;targetScroll;animatedScroll;animate=new a;emitter=new c;dimensions;virtualScroll;constructor({wrapper:t=window,content:n=document.documentElement,eventsTarget:r=t,smoothWheel:i=!0,syncTouch:a=!1,syncTouchLerp:o=.075,touchInertiaExponent:c=1.7,duration:l,easing:u,lerp:p=.1,infinite:m=!1,orientation:h=`vertical`,gestureOrientation:g=h===`horizontal`?`both`:`vertical`,touchMultiplier:_=1,wheelMultiplier:v=1,autoResize:y=!0,prevent:b,virtualScroll:x,overscroll:S=!0,autoRaf:C=!1,anchors:w=!1,autoToggle:T=!1,allowNestedScroll:E=!1,__experimental__naiveDimensions:D=!1,naiveDimensions:O=D,stopInertiaOnNavigate:k=!1,respectReducedMotion:A=!0}={}){window.lenisVersion=e,window.lenis||(window.lenis={}),window.lenis.version=e,h===`horizontal`&&(window.lenis.horizontal=!0),a===!0&&(window.lenis.touch=!0),this.isIos=/(iPad|iPhone|iPod)/g.test(navigator.userAgent),(!t||t===document.documentElement)&&(t=window),typeof l==`number`&&typeof u!=`function`?u=f:typeof u==`function`&&typeof l!=`number`&&(l=1),this.options={wrapper:t,content:n,eventsTarget:r,smoothWheel:i,syncTouch:a,syncTouchLerp:o,touchInertiaExponent:c,duration:l,easing:u,lerp:p,infinite:m,gestureOrientation:g,orientation:h,touchMultiplier:_,wheelMultiplier:v,autoResize:y,prevent:b,virtualScroll:x,overscroll:S,autoRaf:C,anchors:w,autoToggle:T,allowNestedScroll:E,naiveDimensions:O,stopInertiaOnNavigate:k,respectReducedMotion:A},this.dimensions=new s(t,n,{autoResize:y}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener(`scroll`,this.onNativeScroll),this.options.wrapper.addEventListener(`scrollend`,this.onScrollEnd,{capture:!0}),(this.options.anchors||this.options.stopInertiaOnNavigate)&&this.options.wrapper.addEventListener(`click`,this.onClick),this.options.wrapper.addEventListener(`pointerdown`,this.onPointerDown),this.virtualScroll=new d(r,{touchMultiplier:_,wheelMultiplier:v}),this.virtualScroll.on(`scroll`,this.onVirtualScroll),this.options.autoToggle&&(this.checkOverflow(),this.rootElement.addEventListener(`transitionend`,this.onTransitionEnd)),this.options.autoRaf&&(this._rafId=requestAnimationFrame(this.raf))}destroy(){this.emitter.destroy(),this._resetVelocityTimeout!==null&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this.options.wrapper.removeEventListener(`scroll`,this.onNativeScroll),this.options.wrapper.removeEventListener(`scrollend`,this.onScrollEnd,{capture:!0}),this.options.wrapper.removeEventListener(`pointerdown`,this.onPointerDown),(this.options.anchors||this.options.stopInertiaOnNavigate)&&this.options.wrapper.removeEventListener(`click`,this.onClick),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName(),this._rafId&&cancelAnimationFrame(this._rafId)}on(e,t){return this.emitter.on(e,t)}off(e,t){return this.emitter.off(e,t)}onScrollEnd=e=>{e instanceof CustomEvent||(this.isScrolling===`smooth`||this.isScrolling===!1)&&e.stopPropagation()};dispatchScrollendEvent=()=>{this.options.wrapper.dispatchEvent(new CustomEvent(`scrollend`,{bubbles:this.options.wrapper===window,detail:{lenisScrollEnd:!0}}))};get overflow(){let e=this.isHorizontal?`overflow-x`:`overflow-y`;return getComputedStyle(this.rootElement)[e]}checkOverflow(){[`hidden`,`clip`].includes(this.overflow)?this.internalStop():this.internalStart()}onTransitionEnd=e=>{e.propertyName?.includes(`overflow`)&&e.target===this.rootElement&&this.checkOverflow()};setScroll(e){this.isHorizontal?this.options.wrapper.scrollTo({left:e,behavior:`instant`}):this.options.wrapper.scrollTo({top:e,behavior:`instant`})}onClick=e=>{let t=e.composedPath().filter(e=>e instanceof HTMLAnchorElement&&e.href).map(e=>new URL(e.href)),n=new URL(window.location.href);if(this.options.anchors){let e=t.find(e=>n.host===e.host&&n.pathname===e.pathname&&e.hash);if(e){let t=typeof this.options.anchors==`object`&&this.options.anchors?this.options.anchors:void 0,n=decodeURIComponent(e.hash);this.scrollTo(n,t);return}}if(this.options.stopInertiaOnNavigate&&t.some(e=>n.host===e.host&&n.pathname!==e.pathname)){this.reset();return}};onPointerDown=e=>{e.button===1&&this.reset()};isTouchOnSelectionHandle(e){let t=window.getSelection();if(!t||t.isCollapsed||t.rangeCount===0)return!1;let n=e.targetTouches[0]??e.changedTouches[0];if(!n)return!1;let r=t.getRangeAt(0).getClientRects();if(r.length===0)return!1;let i=r[0],a=r[r.length-1],o=Math.hypot(n.clientX-i.left,n.clientY-i.top)<=40,s=Math.hypot(n.clientX-a.right,n.clientY-a.bottom)<=40;return o||s}onVirtualScroll=e=>{if(typeof this.options.virtualScroll==`function`&&this.options.virtualScroll(e)===!1)return;let{deltaX:t,deltaY:n,event:r}=e;if(this.emitter.emit(`virtual-scroll`,{deltaX:t,deltaY:n,event:r}),r.ctrlKey||r.lenisStopPropagation)return;let i=r.type.includes(`touch`),a=r.type.includes(`wheel`);if(i&&this.isIos&&(r.type===`touchstart`&&(this._isDraggingSelection=this.isTouchOnSelectionHandle(r)),this._isDraggingSelection)){r.type===`touchend`&&(this._isDraggingSelection=!1);return}this.isTouching=r.type===`touchstart`||r.type===`touchmove`;let o=t===0&&n===0;if(this.options.syncTouch&&i&&r.type===`touchstart`&&o&&!this.isStopped&&!this.isLocked){this.reset();return}let s=this.options.gestureOrientation===`vertical`&&n===0||this.options.gestureOrientation===`horizontal`&&t===0;if(o||s)return;let c=r.composedPath();c=c.slice(0,c.indexOf(this.rootElement));let l=this.options.prevent,u=Math.abs(t)>=Math.abs(n)?`horizontal`:`vertical`;if(c.find(e=>e instanceof HTMLElement&&(typeof l==`function`&&l?.(e)||e.hasAttribute?.(`data-lenis-prevent`)||u===`vertical`&&e.hasAttribute?.(`data-lenis-prevent-vertical`)||u===`horizontal`&&e.hasAttribute?.(`data-lenis-prevent-horizontal`)||i&&e.hasAttribute?.(`data-lenis-prevent-touch`)||a&&e.hasAttribute?.(`data-lenis-prevent-wheel`)||this.options.allowNestedScroll&&this.hasNestedScroll(e,{deltaX:t,deltaY:n}))))return;if(this.isStopped||this.isLocked){r.cancelable&&r.preventDefault();return}if(!(this.options.syncTouch&&i||this.options.smoothWheel&&a)){this.isScrolling=`native`,this.animate.stop(),r.lenisStopPropagation=!0;return}let d=n;this.options.gestureOrientation===`both`?d=Math.abs(n)>Math.abs(t)?n:t:this.options.gestureOrientation===`horizontal`&&(d=t),(!this.options.overscroll||this.options.infinite||this.options.wrapper!==window&&this.limit>0&&(this.animatedScroll>0&&this.animatedScroll<this.limit||this.animatedScroll===0&&n>0||this.animatedScroll===this.limit&&n<0))&&(r.lenisStopPropagation=!0),r.cancelable&&r.preventDefault();let f=i&&this.options.syncTouch,p=i&&r.type===`touchend`;p&&(d=Math.sign(d)*Math.abs(this.velocity)**this.options.touchInertiaExponent),this.scrollTo(this.targetScroll+d,{programmatic:!1,...f?{lerp:p?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit(`scroll`,this)}onNativeScroll=()=>{if(this._resetVelocityTimeout!==null&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent){this._preventNextNativeScrollEvent=!1;return}if(this.isScrolling===!1||this.isScrolling===`native`){let e=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-e,this.direction=Math.sign(this.animatedScroll-e),this.isStopped||(this.isScrolling=`native`),this.emit(),this.velocity!==0&&(this._resetVelocityTimeout=setTimeout(()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()},400))}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){if(this.isStopped){if(this.options.autoToggle){this.rootElement.style.removeProperty(`overflow`);return}this.internalStart()}}internalStart(){this.isStopped&&(this.reset(),this.isStopped=!1,this.emit())}stop(){if(!this.isStopped){if(this.options.autoToggle){this.rootElement.style.setProperty(`overflow`,`clip`);return}this.internalStop()}}internalStop(){this.isStopped||(this.reset(),this.isStopped=!0,this.emit())}raf=e=>{let t=e-(this.time||e);this.time=e,this.animate.advance(t*.001),this.options.autoRaf&&(this._rafId=requestAnimationFrame(this.raf))};scrollTo(e,{offset:n=0,immediate:r=!1,lock:i=!1,programmatic:a=!0,lerp:o=a?this.options.lerp:void 0,duration:s=a?this.options.duration:void 0,easing:c=a?this.options.easing:void 0,onStart:l,onComplete:u,force:d=!1,userData:p}={}){if(this.prefersReducedMotion&&(a?r=!0:(o=1,s=void 0,c=void 0)),(this.isStopped||this.isLocked)&&!d)return;let m=e,h=n;if(typeof m==`string`&&[`top`,`left`,`start`,`#`].includes(m))m=0;else if(typeof m==`string`&&[`bottom`,`right`,`end`].includes(m))m=this.limit;else{let e=null;if(typeof m==`string`?(e=m.startsWith(`#`)?document.getElementById(m.slice(1)):document.querySelector(m),e||(m===`#top`?m=0:console.warn(`Lenis: Target not found`,m))):m instanceof Element&&(e=m),e){if(this.options.wrapper!==window){let e=this.rootElement.getBoundingClientRect();h-=this.isHorizontal?e.left:e.top}let t=e.getBoundingClientRect(),n=getComputedStyle(e),r=this.isHorizontal?Number.parseFloat(n.scrollMarginLeft):Number.parseFloat(n.scrollMarginTop),i=getComputedStyle(this.rootElement),a=this.isHorizontal?Number.parseFloat(i.scrollPaddingLeft):Number.parseFloat(i.scrollPaddingTop);m=(this.isHorizontal?t.left:t.top)+this.animatedScroll-(Number.isNaN(r)?0:r)-(Number.isNaN(a)?0:a)}}if(typeof m==`number`){if(m+=h,this.options.infinite){if(a){this.targetScroll=this.animatedScroll=this.scroll;let e=m-this.animatedScroll;e>this.limit/2?m-=this.limit:e<-this.limit/2&&(m+=this.limit)}}else m=t(0,m,this.limit);if(m===this.targetScroll){l?.(this),u?.(this);return}if(this.userData=p??{},r){this.animatedScroll=this.targetScroll=m,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),u?.(this),this.userData={},requestAnimationFrame(()=>{this.dispatchScrollendEvent()});return}a||(this.targetScroll=m),typeof s==`number`&&typeof c!=`function`?c=f:typeof c==`function`&&typeof s!=`number`&&(s=1),this.animate.fromTo(this.animatedScroll,m,{duration:s,easing:c,lerp:o,onStart:()=>{i&&(this.isLocked=!0),this.isScrolling=`smooth`,l?.(this)},onUpdate:(e,t)=>{this.isScrolling=`smooth`,this.lastVelocity=this.velocity,this.velocity=e-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=e,this.setScroll(this.scroll),a&&(this.targetScroll=e),t||this.emit(),t&&(this.reset(),this.emit(),u?.(this),this.userData={},requestAnimationFrame(()=>{this.dispatchScrollendEvent()}),this.preventNextNativeScrollEvent())}})}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame(()=>{this._preventNextNativeScrollEvent=!1})}hasNestedScroll(e,{deltaX:t,deltaY:n}){let r=Date.now();e._lenis||={};let i=e._lenis,a,o,s,c,l,u,d,f,p,m;if(r-(i.time??0)>2e3){i.time=Date.now();let t=window.getComputedStyle(e);if(i.computedStyle=t,a=[`auto`,`overlay`,`scroll`].includes(t.overflowX),o=[`auto`,`overlay`,`scroll`].includes(t.overflowY),l=[`auto`].includes(t.overscrollBehaviorX),u=[`auto`].includes(t.overscrollBehaviorY),i.hasOverflowX=a,i.hasOverflowY=o,!(a||o))return!1;d=e.scrollWidth,f=e.scrollHeight,p=e.clientWidth,m=e.clientHeight,s=d>p,c=f>m,i.isScrollableX=s,i.isScrollableY=c,i.scrollWidth=d,i.scrollHeight=f,i.clientWidth=p,i.clientHeight=m,i.hasOverscrollBehaviorX=l,i.hasOverscrollBehaviorY=u}else s=i.isScrollableX,c=i.isScrollableY,a=i.hasOverflowX,o=i.hasOverflowY,d=i.scrollWidth,f=i.scrollHeight,p=i.clientWidth,m=i.clientHeight,l=i.hasOverscrollBehaviorX,u=i.hasOverscrollBehaviorY;if(!(a&&s||o&&c))return!1;let h=Math.abs(t)>=Math.abs(n)?`horizontal`:`vertical`,g,_,v,y,b,x;if(h===`horizontal`)g=Math.round(e.scrollLeft),_=d-p,v=t,y=a,b=s,x=l;else if(h===`vertical`)g=Math.round(e.scrollTop),_=f-m,v=n,y=o,b=c,x=u;else return!1;return!x&&(g>=_||g<=0)?!0:(v>0?g<_:g>0)&&y&&b}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?`x`:`y`]}get isHorizontal(){return this.options.orientation===`horizontal`}get actualScroll(){let e=this.options.wrapper;return this.isHorizontal?e.scrollX??e.scrollLeft:e.scrollY??e.scrollTop}get scroll(){return this.options.infinite?i(this.animatedScroll,this.limit):this.animatedScroll}get progress(){return this.limit===0?1:this.scroll/this.limit}get isScrolling(){return this._isScrolling}set isScrolling(e){this._isScrolling!==e&&(this._isScrolling=e,this.updateClassName())}get isStopped(){return this._isStopped}set isStopped(e){this._isStopped!==e&&(this._isStopped=e,this.updateClassName())}get isLocked(){return this._isLocked}set isLocked(e){this._isLocked!==e&&(this._isLocked=e,this.updateClassName())}get isSmooth(){return this.isScrolling===`smooth`}get prefersReducedMotion(){return this.options.respectReducedMotion&&this.reducedMotionMediaQuery.matches}get className(){let e=`lenis`;return this.options.autoToggle&&(e+=` lenis-autoToggle`),this.isStopped&&(e+=` lenis-stopped`),this.isLocked&&(e+=` lenis-locked`),this.isScrolling&&(e+=` lenis-scrolling`),this.isScrolling===`smooth`&&(e+=` lenis-smooth`),e}updateClassName(){this.cleanUpClassName(),this.className.split(` `).forEach(e=>{this.rootElement.classList.add(e)})}cleanUpClassName(){for(let e of Array.from(this.rootElement.classList))(e===`lenis`||e.startsWith(`lenis-`))&&this.rootElement.classList.remove(e)}};globalThis.Lenis=p,globalThis.Lenis.prototype=p.prototype})();
+</script>
+<script>
+(function(){
+  var T = {
+    en: {
+      'nav.about':'About','about.h':'About me',
+      'about.p':'I like turning slow, repetitive processes into systems that run on their own. I combine automation, AI agents and full stack development to build solutions that reach production and genuinely save time.',
+      'nav.exp':'Experience','nav.proj':'Project','nav.edu':'Education','nav.skills':'Skills','nav.contact':'Contact',
+      'hero.status':'Salamanca, Spain. Open to new opportunities',
+      'hero.role':'Computer Engineer specialising in artificial intelligence, automation and software development.',
+      'hero.intro':'Graduate of the University of Salamanca, with hands-on experience in the AI & Automation department at Viewnext. I build automations, AI agents and full web applications, from first idea to production. I am currently studying a Master’s in Artificial Intelligence and Data Science.',
+      'hero.cta':'Get in touch','hero.cv':'Download CV',
+      'flow.title':'How I work: from a manual process to an automated one',
+      'flow.n0':'Process','flow.n1':'AI agent','flow.n2':'RPA & workflows','flow.n3':'Result',
+      'flow.c0':'It starts with a repetitive, manual task that costs a team time every day.',
+      'flow.c1':'An AI agent, guided by carefully designed prompts, understands the data and decides what to do.',
+      'flow.c2':'RPA robots and workflows (UiPath, Blue Prism, n8n) carry out the steps reliably.',
+      'flow.c3':'The result: less manual work, fewer errors and a process running in production.',
+      'exp.h':'Experience','exp.role':'AI & Automation Intern','exp.when':'Feb 2026 – May 2026',
+      'exp.k1':'in a professional AI and automation team','exp.k2':'in every competency of my supervisor’s final report','exp.k3h':'Production','exp.k3':'RPA robots deployed and running for clients',
+      'exp.d1':'Built and optimised RPA automation flows with UiPath and Blue Prism.',
+      'exp.d2':'Designed and configured AI agents, including writing complex system prompts.',
+      'exp.d3':'Implemented Memory Bank structures in Cline to improve AI model context and persistence.',
+      'exp.d4':'Designed and configured automated workflows using n8n for orchestration.',
+      'exp.d5':'Researched and tested Playwright to speed up internal development cycles.',
+      'exp.d6':'Independently solved bugs and API or environment conflicts under changing requirements, proposing a roadmap.',
+      'exp.d7':'Worked with the team on innovation, automation and artificial intelligence projects.',
+      'exp.more':'Show all tasks','exp.less':'Show fewer tasks',
+      'proj.h':'Featured project','proj.note':'Final Degree Project, built end to end on my own.',
+      'proj.sub':'Hospital management system with an AI voice assistant',
+      'proj.desc':'A web platform with three profiles (patient, doctor and administrator): appointments, medical schedule, on-call shifts, clinical records and an admin panel. It is deployed and running in production.',
+      'proj.visit':'Visit asiasalud.es','proj.t0':'Voice assistant','proj.t1':'Architecture','proj.t2':'Security','proj.t3':'Deployment',
+      'proj.p0':'Preliminary voice triage: speech recognition and synthesis with the Web Speech API and an AI service called from the backend, with response validation and a fallback mechanism. It returns an urgency level, a recommended specialty and a PDF report.',
+      'proj.p1':'Client–server architecture: React and Vite on the frontend; Node.js and Express with a REST API organised into routes, controllers, services and middlewares on MySQL, documented and tested with Swagger/OpenAPI.',
+      'proj.p2':'JWT authentication, role-based access control (RBAC), protected private routes, passwords hashed with bcrypt and traffic over HTTPS.',
+      'proj.p3':'Deployed on a VPS with Docker, Docker Compose, Nginx as a reverse proxy and Let’s Encrypt certificates. Managed with Scrum over 9 sprints, using a Product Backlog, Story Points, Trello and Git/GitLab.',
+      'edu.h':'Education','edu.m':'Master’s in Artificial Intelligence and Data Science','edu.now':'In progress','edu.g':'Bachelor’s in Computer Engineering','edu.c':'Certificate in Generative AI for Application Development',
+      'sk.h':'Skills','sk.note':'Pick an area to highlight its tools.','sk.all':'All','sk.ia':'AI & automation','sk.dev':'Development','sk.sec':'Security','sk.ops':'DevOps & tools','sk.agents':'AI agents',
+      'lang.en':'English','lang.fr':'French','lang.frl':'4 years of study',
+      'ct.h':'Let’s talk.','ct.p':'I am looking for opportunities in AI, automation and software development, in Salamanca or remote. Write to me and I will reply as soon as I can.',
+      'ct.copy':'Copy email','ct.copied':'Email copied','ft':'Salamanca, Spain',
+      'theme.toLight':'Switch to light mode','theme.toDark':'Switch to dark mode'
+    },
+    es: {
+      'flow.c0':'Parte de una tarea manual y repetitiva que le cuesta tiempo a un equipo cada día.',
+      'flow.c1':'Un agente de IA, guiado por prompts bien diseñados, entiende los datos y decide qué hacer.',
+      'flow.c2':'Robots RPA y workflows (UiPath, Blue Prism, n8n) ejecutan los pasos de forma fiable.',
+      'flow.c3':'El resultado: menos trabajo manual, menos errores y un proceso funcionando en producción.',
+      'exp.more':'Ver todas las tareas','exp.less':'Ver menos tareas','ct.copied':'Email copiado',
+      'theme.toLight':'Cambiar a modo claro','theme.toDark':'Cambiar a modo oscuro'
+    }
+  };
+  var root = document.documentElement;
+  var nodes = document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function(n){ var k=n.getAttribute('data-i18n'); if(!(k in T.es)) T.es[k]=n.innerHTML; });
+  var lang = 'es';
+  function t(k){ return (T[lang] && T[lang][k]) || T.es[k] || ''; }
+  function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function read(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+
+  function setLang(l){
+    lang = l; root.lang = l;
+    nodes.forEach(function(n){ var v=t(n.getAttribute('data-i18n')); if(v) n.innerHTML=v; });
+    splitWords();
+    document.querySelectorAll('[data-lang]').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
+    more.textContent = t(open ? 'exp.less' : 'exp.more');
+    caption.textContent = t('flow.c'+step);
+    themeBtn.setAttribute('aria-label', t(root.dataset.theme==='dark' ? 'theme.toLight' : 'theme.toDark'));
+    store('lang', l);
+  }
+  function setTheme(th){
+    root.dataset.theme = th;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', th==='dark' ? '#0B0C0E' : '#F5F6F4');
+    themeBtn.setAttribute('aria-label', t(th==='dark' ? 'theme.toLight' : 'theme.toDark'));
+    store('theme', th);
+  }
+
+  /* Tema */
+  var themeBtn = document.getElementById('theme');
+  themeBtn.addEventListener('click', function(){ setTheme(root.dataset.theme==='dark' ? 'light' : 'dark'); });
+
+  /* Experiencia: ver más */
+  var more = document.getElementById('more'), open = false;
+  more.addEventListener('click', function(){
+    open = !open;
+    document.querySelectorAll('#duties li').forEach(function(li,i){ if(i>2) li.hidden = !open; });
+    more.setAttribute('aria-expanded', String(open));
+    more.textContent = t(open ? 'exp.less' : 'exp.more');
+  });
+
+  /* Flujo de la portada */
+  var step = 0, caption = document.getElementById('flow-caption'), timer;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(s){
+    step = s;
+    document.querySelectorAll('.flow .node').forEach(function(g){ g.classList.toggle('hl', +g.dataset.step===s); });
+    document.querySelectorAll('[data-go]').forEach(function(b){ b.setAttribute('aria-pressed', String(+b.dataset.go===s)); });
+    caption.textContent = t('flow.c'+s);
+  }
+  function auto(){ clearInterval(timer); if(!reduce) timer = setInterval(function(){ go((step+1)%4); }, 3200); }
+  document.querySelectorAll('[data-go]').forEach(function(b){ b.addEventListener('click', function(){ go(+b.dataset.go); auto(); }); });
+
+  /* Pestañas del proyecto */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function selectTab(i, focus){
+    tabs.forEach(function(tb,j){
+      var on = i===j; tb.setAttribute('aria-selected', String(on)); tb.tabIndex = on ? 0 : -1;
+      document.getElementById(tb.getAttribute('aria-controls')).hidden = !on;
+    });
+    if(focus) tabs[i].focus();
+  }
+  tabs.forEach(function(tb,i){
+    tb.addEventListener('click', function(){ selectTab(i); });
+    tb.addEventListener('keydown', function(e){
+      if(e.key==='ArrowRight'){ e.preventDefault(); selectTab((i+1)%tabs.length, true); }
+      if(e.key==='ArrowLeft'){ e.preventDefault(); selectTab((i-1+tabs.length)%tabs.length, true); }
+    });
+  });
+
+  /* Filtro de habilidades */
+  document.querySelectorAll('[data-f]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.f;
+      document.querySelectorAll('[data-f]').forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+      document.querySelectorAll('#skills .tag').forEach(function(tg){ tg.classList.toggle('dim', f!=='all' && tg.dataset.a!==f); });
+    });
+  });
+
+  /* Copiar email */
+  var toast = document.getElementById('toast'), tt;
+  document.getElementById('copy').addEventListener('click', function(){
+    var done = function(){ toast.textContent = t('ct.copied'); clearTimeout(tt); tt = setTimeout(function(){ toast.textContent=''; }, 2400); };
+    if(navigator.clipboard){ navigator.clipboard.writeText('cynthiaaafg@gmail.com').then(done, function(){ toast.textContent='cynthiaaafg@gmail.com'; }); }
+    else { toast.textContent='cynthiaaafg@gmail.com'; }
+  });
+
+  /* Sección activa en el menú */
+  if('IntersectionObserver' in window){
+    var links = document.querySelectorAll('.nav a');
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id); }); } });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+  }
+
+  /* ---------- Fluidez ---------- */
+  var lenis = null;
+  if(!reduce && window.Lenis){
+    try{
+      lenis = new Lenis({ lerp: 0.085, smoothWheel: true, wheelMultiplier: 0.95 });
+      (function raf(time){ lenis.raf(time); requestAnimationFrame(raf); })(performance.now());
+    }catch(e){ lenis = null; }
+  }
+
+  // Enlaces internos con desplazamiento suave
+  var sheet = document.getElementById('sheet'), burger = document.getElementById('burger');
+  function closeSheet(){ sheet.classList.remove('open'); burger.setAttribute('aria-expanded','false'); if(lenis) lenis.start(); }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href'); var el = id.length > 1 ? document.querySelector(id) : document.body;
+      if(!el) return;
+      e.preventDefault(); closeSheet();
+      if(lenis) lenis.scrollTo(id === '#inicio' ? 0 : el, { offset: -70, duration: 1.4 });
+      else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+  // Menú móvil
+  burger.addEventListener('click', function(){ sheet.classList.add('open'); burger.setAttribute('aria-expanded','true'); if(lenis) lenis.stop(); document.getElementById('sheet-close').focus(); });
+  document.getElementById('sheet-close').addEventListener('click', function(){ closeSheet(); burger.focus(); });
+  sheet.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeSheet(); burger.focus(); } });
+
+  // Texto palabra a palabra
+  var statement = document.getElementById('statement'), words = [];
+  function splitWords(){
+    if(!statement) return;
+    var txt = statement.textContent.trim().split(/\s+/);
+    statement.innerHTML = txt.map(function(w){ return '<span class="w">' + w.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</span>'; }).join(' ');
+    words = Array.prototype.slice.call(statement.querySelectorAll('.w'));
+    if(reduce) words.forEach(function(w){ w.classList.add('on'); });
+    tick();
+  }
+
+  // Aparición al entrar en pantalla
+  var rvSel = '.sec h2, .sec-note, .job-head, .org, .highlights, .duties li, .more, .proj-title, .proj-sub, .proj-desc, #proyecto .actions, .tabs, .panel, .edu li, .filters, .lang, .contact h2, .contact p, .mail-row';
+  if(!reduce && 'IntersectionObserver' in window){
+    document.querySelectorAll(rvSel).forEach(function(el){ el.classList.add('rv'); });
+    var sk = document.getElementById('skills'); sk.classList.add('stag');
+    Array.prototype.forEach.call(sk.children, function(tg,i){ tg.style.transitionDelay = (i*0.025)+'s'; });
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+    document.querySelectorAll('.rv, .tags.stag').forEach(function(el){ rio.observe(el); });
+
+    // Contadores
+    var cio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return; cio.unobserve(e.target);
+        var el = e.target, end = +el.dataset.count, t0 = null, dur = 1600;
+        (function step(ts){ if(!t0) t0 = ts; var p = Math.min((ts - t0)/dur, 1); var k = 1 - Math.pow(1 - p, 4);
+          el.textContent = Math.round(end * k); if(p < 1) requestAnimationFrame(step); })(performance.now());
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(function(el){ el.textContent = '0'; cio.observe(el); });
+  }
+
+  // Todo lo que depende del scroll, en un solo frame
+  var top = document.querySelector('.top'), bar = document.getElementById('progress'), heroIn = document.getElementById('hero-inner');
+  var lastY = 0, ticking = false;
+  function tick(){
+    ticking = false;
+    var y = window.scrollY || window.pageYOffset, vh = window.innerHeight;
+    var max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    if(y > 240 && y > lastY + 2 && !sheet.classList.contains('open')) top.classList.add('hide');
+    else if(y < lastY - 2 || y < 240) top.classList.remove('hide');
+    lastY = y;
+    if(!reduce && heroIn && y < vh * 1.2){
+      var p = Math.min(y / vh, 1);
+      heroIn.style.transform = 'translate3d(0,' + (y * 0.22) + 'px,0) scale(' + (1 - p * 0.04) + ')';
+      heroIn.style.opacity = String(1 - p * 0.85);
+    }
+    if(words.length && !reduce){
+      var r = statement.getBoundingClientRect();
+      var prog = (vh * 0.82 - r.top) / (r.height + vh * 0.32);
+      var n = Math.round(Math.max(0, Math.min(1, prog)) * words.length);
+      for(var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+    }
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(tick); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  /* Idioma */
+  document.querySelectorAll('[data-lang]').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+
+  /* Inicio */
+  var savedTheme = read('theme'); if(savedTheme==='light' || savedTheme==='dark') root.dataset.theme = savedTheme;
+  var savedLang = read('lang') || ((navigator.language||'es').slice(0,2)==='en' ? 'en' : 'es');
+  go(0); setTheme(root.dataset.theme); setLang(savedLang); auto();
+})();
+</script>
+</body>
+</html>
